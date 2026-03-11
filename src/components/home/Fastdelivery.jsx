@@ -32,9 +32,17 @@ export default function FastdeliverySection() {
                             15 minutes. Earn on every delivery, enjoy flexible working hours,
                             and be part of a fast-growing street food delivery network in your city.
                         </p>
-                        <Link to="/deliverypartner" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-md">
-                            Become a Delivery Partner
-                        </Link>
+                       <Link
+  to="/deliverypartner"
+  className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold 
+  px-4 sm:px-6 md:px-8 
+  py-2 sm:py-3 
+  text-xs sm:text-sm md:text-base 
+  rounded-md 
+  inline-block text-center"
+>
+  Become a Delivery Partner
+</Link>
                     </div>
                 </div>
             </div>
