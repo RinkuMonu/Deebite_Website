@@ -9,6 +9,9 @@ import About from "./pages/About";
 import DeliveryPartnerSection from "./pages/DeliveryPartner";
 import ScrollToTop from "./components/ScrolltoTop";
 import FloatingAppButton from "./components/FloatingAppButton";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import RefundPolicy from "./pages/RefundPolicy";
+import TermsOfService from "./pages/Termsofservice";
 
 
 function App() {
@@ -18,12 +21,15 @@ function App() {
     <Router>
       <ScrollToTop />
       <Header />
-      <FloatingAppButton />
+      {/* <FloatingAppButton /> */}
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/deliverypartner" element={<DeliveryPartnerSection />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/refundpolicy" element={<RefundPolicy />} />
+        <Route path="/termsofservice" element={<TermsOfService />} />
 
       </Routes>
       <Footer />
