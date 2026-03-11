@@ -130,11 +130,6 @@ export default function AboutUsSection() {
 </p>
             </div>
           </div>
-
-          <button className="bg-[#f5185a] text-white px-8 py-3 rounded-md hover:bg-red-600">
-            About Us
-          </button>
-
         </div>
 
       </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IoIosPerson } from "react-icons/io";
+import { MdOutlineRateReview } from "react-icons/md";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useState, useEffect } from "react";
@@ -8,6 +8,12 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
+
+  const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [role, setRole] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,32 +24,43 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-  const [mobile, setMobile] = useState("");
-  const [error, setError] = useState("");
-
   const handleMobileChange = (e) => {
     const value = e.target.value;
 
-    // Allow only numbers
     if (/^\d*$/.test(value)) {
-      setMobile(value);
+      if (value.length <= 10) {
+        setMobile(value);
+      }
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate 10 digit mobile number
     const mobileRegex = /^[6-9]\d{9}$/;
+
+    if (name.trim() === "") {
+      setError("Name is required");
+      return;
+    }
 
     if (!mobileRegex.test(mobile)) {
       setError("Enter a valid 10 digit mobile number");
       return;
     }
 
+    if (message.trim() === "") {
+      setError("Please write your feedback");
+      return;
+    }
+
     setError("");
-    alert("Login successful");
+    alert("Thank you for your feedback!");
+
+    setName("");
+    setMobile("");
+    setMessage("");
+    setLoginOpen(false);
   };
 
   return (
@@ -56,6 +73,7 @@ const Header = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 md:bg-transparent bg-black flex items-center justify-between">
+          
           {/* Logo */}
           <div className="text-2xl font-bold">
             <Link to="/">Deebite</Link>
@@ -72,7 +90,7 @@ const Header = () => {
             </Link>
 
             <Link
-              to="/"
+              to="https://play.google.com/store/apps/details?id=com.utility.finunique" target="blank"
               className="flex items-center border border-gray-200 hover:border-yellow-400 px-5 py-2 rounded-lg hover:text-yellow-400 transition"
             >
               Get the App
@@ -89,15 +107,16 @@ const Header = () => {
 
           {/* Right Side */}
           <div className="flex items-center space-x-4">
-          
+
+            {/* Feedback Button */}
             <button
               onClick={() => setLoginOpen(true)}
               className="p-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-500"
             >
-              <IoIosPerson size={24} />
+              <MdOutlineRateReview size={24} />
             </button>
 
-          
+            {/* Mobile Menu Button */}
             <button
               className="md:hidden text-3xl"
               onClick={() => setMenuOpen(!menuOpen)}
@@ -113,6 +132,7 @@ const Header = () => {
             <Link to="/" onClick={() => setMenuOpen(false)}>
               Home
             </Link>
+
             <Link to="/about" onClick={() => setMenuOpen(false)}>
               About
             </Link>
@@ -141,87 +161,108 @@ const Header = () => {
         ></div>
       )}
 
-      {/* OFFCANVAS LOGIN */}
+      {/* OFFCANVAS FEEDBACK FORM */}
       <div
-        className={`fixed top-0 right-0 h-full md:w-[70vh] w-[550vh] bg-white z-50 shadow-lg transform transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full md:w-[450px] w-full bg-white z-50 shadow-lg transform transition-transform duration-300 ${
           loginOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-      <div className="grid grid-cols-1 h-full">
-  {/* LEFT SIDE FORM */}
-  <div className="bg-gray-100 p-10 flex items-center relative">
+        <div className="grid grid-cols-1 h-full">
 
-    {/* CLOSE BUTTON */}
-    <button
-      onClick={() => setLoginOpen(false)}
-      className="absolute top-4 right-4 text-2xl text-gray-600 hover:text-black"
-    >
-      ✕
-    </button>
+          {/* FORM AREA */}
+          <div className="bg-gray-100 p-10 flex items-center relative">
 
-      <div className="w-full max-w-md mx-auto">
-      <h2 className="text-3xl font-bold mb-2">Welcome Back!</h2>
-      <p className="text-xl font-semibold mb-8">Log in to your ID</p>
+            {/* CLOSE BUTTON */}
+            <button
+              onClick={() => setLoginOpen(false)}
+              className="absolute top-4 right-4 text-2xl text-gray-600 hover:text-black"
+            >
+              ✕
+            </button>
 
-      <form className="space-y-6" onSubmit={handleSubmit}>
-        
-        {/* Mobile */}
-        <div>
-          <label className="block mb-2 font-medium">
-            Mobile Number
-          </label>
-          <input
-            type="text"
-            value={mobile}
-            onChange={handleMobileChange}
-            placeholder="Enter your Phone number"
-            className="w-full border p-3 rounded-lg bg-white"
-            maxLength={10}
-          />
-          {error && (
-            <p className="text-red-500 text-sm mt-1">{error}</p>
-          )}
-        </div>
+            <div className="w-full max-w-md mx-auto">
 
-        {/* Password */}
-        <div>
-          <label className="block mb-2 font-medium">
-            Password
-          </label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            className="w-full border p-3 rounded-lg bg-white"
-          />
-        </div>
+              <h2 className="text-3xl font-bold mb-2">
+                Customer Feedback
+              </h2>
 
-        {/* Button */}
-        <button className="w-full bg-[#f5185a] hover:bg-[#f5185a]/70 text-white py-3 rounded-lg font-semibold">
-          Continue
-        </button>
+              <p className="text-xl font-semibold mb-8">
+                Share your experience with us
+              </p>
 
-        <p className="text-sm text-gray-600">
-          By continuing you agree to our{" "}
-          <span className="text-blue-600 underline">
-            privacy policy
-          </span>{" "}
-          and{" "}
-          <span className="text-blue-600 underline">
-            terms of use
-          </span>
-        </p>
+           <form className="space-y-6" onSubmit={handleSubmit}>
 
-        <p className="text-center">
-          <a href="#" className="text-blue-600 underline">
-            Register
-          </a>
-        </p>
-
-      </form>
-    </div>
-
+  {/* Name */}
+  <div>
+    <label className="block mb-2 font-medium">
+      Your Name
+    </label>
+    <input
+      type="text"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      placeholder="Enter your name"
+      className="w-full border p-3 rounded-lg bg-white"
+    />
   </div>
-</div>
+
+  {/* Role / Occupation */}
+  <div>
+    <label className="block mb-2 font-medium">
+      What do you do? (Role / Occupation)
+    </label>
+    <input
+      type="text"
+      value={role}
+      onChange={(e) => setRole(e.target.value)}
+      placeholder="Student / Food Blogger / Business / etc."
+      className="w-full border p-3 rounded-lg bg-white"
+    />
+  </div>
+
+  {/* Mobile */}
+  <div>
+    <label className="block mb-2 font-medium">
+      Mobile Number
+    </label>
+    <input
+      type="text"
+      value={mobile}
+      onChange={handleMobileChange}
+      placeholder="Enter your phone number"
+      className="w-full border p-3 rounded-lg bg-white"
+      maxLength={10}
+    />
+  </div>
+
+  {/* Message */}
+  <div>
+    <label className="block mb-2 font-medium">
+      Your Review / Feedback
+    </label>
+    <textarea
+      value={message}
+      onChange={(e) => setMessage(e.target.value)}
+      placeholder="Write your experience here..."
+      rows="4"
+      className="w-full border p-3 rounded-lg bg-white"
+    ></textarea>
+  </div>
+
+  {error && (
+    <p className="text-red-500 text-sm">{error}</p>
+  )}
+
+  {/* Submit */}
+  <button className="w-full bg-[#f5185a] hover:bg-[#f5185a]/80 text-white py-3 rounded-lg font-semibold">
+    Submit Feedback
+  </button>
+
+</form>
+
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

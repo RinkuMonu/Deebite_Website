@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import About from "./pages/About";
 import DeliveryPartnerSection from "./pages/DeliveryPartner";
 import ScrollToTop from "./components/ScrolltoTop";
+import FloatingAppButton from "./components/FloatingAppButton";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <Header />
+      <FloatingAppButton />
 
       <Routes>
         <Route path="/" element={<Home />} />
