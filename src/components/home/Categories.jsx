@@ -15,15 +15,15 @@ export default function FoodCategorySection() {
   ];
 
   return (
-    <section className="py-20 px-10">
+    <section id="categories" className="py-16 md:py-20 px-4 sm:px-6 md:px-10">
       
       {/* Heading */}
-      <h2 className="flex items-center justify-center text-5xl md:text-6xl mb-10 font-bold text-red-500 leading-tight">
-          Categories
-        </h2>
+      <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-12 font-bold text-red-500 leading-tight">
+        Categories
+      </h2>
 
       {/* Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-16 text-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-12 gap-x-6 text-center">
 
         {foods.map((food, index) => (
           <div
@@ -34,11 +34,11 @@ export default function FoodCategorySection() {
             <img
               src={food.img}
               alt={food.name}
-              className="w-40 h-40 object-cover mb-4 rounded-full transition hover:shadow-2xl duration-300 group-hover:scale-110"
+              className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 object-cover mb-3 md:mb-4 rounded-full transition duration-300 group-hover:scale-110 group-hover:shadow-2xl"
             />
 
             {/* Name */}
-            <p className="text-xl text-gray-700 font-medium">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 font-medium">
               {food.name}
             </p>
           </div>

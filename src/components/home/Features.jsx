@@ -1,8 +1,8 @@
 import { LiaCertificateSolid } from "react-icons/lia";
 import { IoTimerSharp } from "react-icons/io5";
-import { BsShopWindow } from "react-icons/bs";
-import { IoFastFoodOutline } from "react-icons/io5";
-import { MdOutlineDeliveryDining } from "react-icons/md";
+
+
+
 
 export default function FeaturesSection() {
   const features = [
@@ -23,53 +23,12 @@ export default function FeaturesSection() {
       icon: <LiaCertificateSolid />,
     },
   ];
-    const stats = [
-    {
-      number: "300+",
-      label: "Vendors",
-      icon: <BsShopWindow />,
-    },
-    {
-      number: "400+",
-      label: "Dishes",
-      icon: <IoFastFoodOutline />,
-    },
-    {
-      number: "1000+",
-      label: "orders delivered",
-      icon: <MdOutlineDeliveryDining />,
-    },
-  ];
+  
 
   return (
     <section className="bg-gray-100 py-20 px-10">
           {/* STATS CARD */}
-      <div className="px-auto mx-auto mb-10 w-full max-w-4xl px-6 z-20">
-        <div className="bg-white rounded-3xl shadow-xl py-10 px-10 flex flex-col md:flex-row justify-between items-center gap-8">
-
-          {stats.map((item, index) => (
-            <div key={index} className="flex items-center gap-6 relative">
-
-              <div>
-                <h3 className="text-3xl font-bold text-gray-700">
-                  {item.number}
-                </h3>
-                <p className="text-gray-500">{item.label}</p>
-              </div>
-
-              <div className="text-yellow-500 text-5xl">
-                {item.icon}
-              </div>
-
-            
-              {index !== stats.length - 1 && (
-                <div className="hidden md:block absolute -right-10 h-10 w-px bg-gray-200"></div>
-              )}
-            </div>
-          ))}
-
-        </div>
-      </div>
+   
           <div className="text-center mb-14">
     <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
       Kyun Hai Humara <span className="text-[#F5185a]">Street Swad</span> Sabse Alag?
