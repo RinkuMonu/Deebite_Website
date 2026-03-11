@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
@@ -72,9 +73,10 @@ export default function HeroSection() {
 
         {/* BUTTONS */}
         <div className="mt-6 md:mt-8 flex justify-center gap-4 flex-wrap">
-          <button className="bg-[#F5185a] hover:bg-yellow-300 text-white font-semibold px-6 md:px-8 py-2 md:py-3 rounded-full shadow-lg hover:scale-110 transition duration-300">
-            Order Now 🍔
-          </button>
+          <Link  to="https://play.google.com/store/apps/details?id=com.utility.finunique" target="blank"
+      download className="bg-[#F5185a] hover:bg-yellow-300 text-white font-semibold px-6 md:px-8 py-2 md:py-3 rounded-full shadow-lg hover:scale-110 transition duration-300">
+           Download App
+          </Link>
 
           <button className="border border-white text-white px-6 md:px-8 py-2 md:py-3 rounded-full hover:bg-white hover:text-black transition duration-300">
             Explore Menu 🌮

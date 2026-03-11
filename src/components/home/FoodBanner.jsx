@@ -71,11 +71,7 @@ export default function FoodBannerSection() {
                 {slide.desc}
               </p>
 
-              <div className="flex justify-center md:justify-start mt-6 md:mt-8">
-                <button className="bg-[#F5185A] text-white px-8 md:px-12 py-3 rounded-md font-medium hover:bg-red-600 transition">
-                  Order Now
-                </button>
-              </div>
+             
             </div>
 
             {/* RIGHT IMAGE */}

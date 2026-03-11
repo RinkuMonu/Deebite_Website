@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function AppCtaSection() {
   return (
     <section className="max-w-6xl mx-auto rounded-2xl h-auto py-14 md:py-16 my-12 md:my-16 bg-yellow-100">
@@ -18,14 +20,19 @@ export default function AppCtaSection() {
           </p>
 
           <div className="flex justify-center md:justify-start">
-            <button className="flex items-center gap-3 border-2 border-[#F5185A] text-[#F5185A] px-6 md:px-7 py-3 rounded-md font-medium hover:bg-[#F5185A] hover:text-[#fff9f4] transition">
+            <Link
+              to="https://play.google.com/store/apps/details?id=com.utility.finunique"
+              target="_blank"
+              download
+              className="flex items-center gap-3 border-2 border-[#F5185A] text-[#F5185A] px-6 md:px-7 py-3 rounded-md font-medium hover:bg-[#F5185A] hover:text-[#fff9f4] transition"
+            >
               <img
                 src="/home/playstore.png"
                 alt="download"
                 className="w-5 h-5"
               />
               Get the App
-            </button>
+            </Link>
           </div>
 
         </div>

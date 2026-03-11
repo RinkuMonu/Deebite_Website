@@ -1,86 +1,101 @@
-import { FaGooglePlay, FaApple } from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { IoMdSend } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer
-      className="relative text-white"
-      style={{
-        backgroundImage: "url('/home/footer.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black"></div>
-      {/* <img
-        src="/home/noodeles.png"
-        alt="logo"
-        className="absolute top-44 right-10 w-72 h-52"
-      /> */}
+    <footer className="bg-[#1f1f1f] text-gray-300 pt-16 pb-10 relative">
 
-      <div className="relative max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 
-        {/* Column 1 */}
+        {/* Logo & Contact */}
         <div>
-          <h3 className="text-2xl font-bold mb-4 ">DEEBITE</h3>
-          <p className="text-gray-200 text-sm leading-relaxed">
-            Discover the authentic taste of street food delivered fresh
-            from your favorite local vendors right to your doorstep.
+          <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-2">
+            Deebite
+          </h2>
+
+          <p className="text-sm mb-6">
+            Lorem ipsum dolor sit consectetur, ame adipiscing elit,
+            sed do
           </p>
+
+          <div className="space-y-3 text-sm">
+
+         
+
+            <div className="flex gap-3">
+              <FaEnvelope className="mt-1 text-red-500" />
+              <p>info@deebite.com <br /> test@deebite.com</p>
+            </div>
+
+            <div className="flex gap-3">
+              <FaPhoneAlt className="mt-1 text-red-500" />
+              <p>+123 456 679 123 <br /> +123 456 789 333</p>
+            </div>
+
+          </div>
         </div>
 
-        {/* Column 2 */}
+        {/* Quick Links */}
         <div>
-          <h4 className="text-lg font-semibold mb-4 ">Quick Links</h4>
-          <ul className="space-y-2 text-gray-200">
-            <li className="hover:text-yellow-400 cursor-pointer">Home</li>
-            <li className="hover:text-yellow-400 cursor-pointer">About</li>
-            <li className="hover:text-yellow-400 cursor-pointer">Categories</li>
-            <li className="hover:text-yellow-400 cursor-pointer">Contact</li>
+          <h3 className="text-white text-xl font-semibold mb-6 border-b border-gray-600 inline-block pb-2">
+            Quick links
+          </h3>
+
+          <ul className="space-y-6">
+           <Link to="/"> <li className="hover:text-red-400 cursor-pointer">Home</li></Link>
+           <Link to="/about"> <li className="hover:text-red-400 cursor-pointer">About</li></Link>
+           <Link to="/deliverypartner"> <li className="hover:text-red-400 cursor-pointer">Become a Partner</li></Link>
+           
           </ul>
         </div>
 
-        {/* Column 3 */}
+        {/* Instagram */}
         <div>
-          <h4 className="text-lg font-semibold mb-4 ">Popular Categories</h4>
-          <ul className="space-y-2 text-gray-200">
-            <li className="hover:text-yellow-400 cursor-pointer">Chaat</li>
-            <li className="hover:text-yellow-400 cursor-pointer">Snacks</li>
-            <li className="hover:text-yellow-400 cursor-pointer">Desserts</li>
-            <li className="hover:text-yellow-400 cursor-pointer">Beverages</li>
-          </ul>
+          <h3 className="text-white text-xl font-semibold mb-6 border-b border-gray-600 inline-block pb-2">
+            Perks
+          </h3>
+
+          <div className="grid grid-cols-3 gap-3">
+            <img src="/home/chaat.jpg" className="rounded-md hover:scale-110 transition duration-300" />
+            <img src="/home/kachori.jpg" className="rounded-md hover:scale-110 transition duration-300" />
+            <img src="/home/chai.jpg" className="rounded-md hover:scale-110 transition duration-300" />
+            <img src="/home/dosa.jpg" className="rounded-md hover:scale-110 transition duration-300" />
+            <img src="/home/chhole-bhature.jpg" className="rounded-md hover:scale-110 transition duration-300" />
+            <img src="/home/cc.jpg" className="rounded-md hover:scale-110 transition duration-300" />
+          </div>
         </div>
 
-        {/* Column 4 */}
-       {/* Column 4 */}
-<div>
-  <h4 className="text-lg font-semibold mb-4">Download App</h4>
-  <p className="text-gray-200 text-sm mb-4">
-    Get our app for a better food ordering experience.
-  </p>
+        {/* Subscribe */}
+        <div>
+          <h3 className="text-white text-xl font-semibold mb-6 border-b border-gray-600 inline-block pb-2">
+            Subscribe
+          </h3>
+          <p className="text-sm mb-6">
+            Lorem ipsum dolor si consectetur adipiscing elit, sed
+            eiusmod tempor incididunt ut labore et
+          </p>
 
-  <div className="flex gap-4">
+          {/* Email input */}
+          <div className="flex mb-6">
+            <input
+              type="email"
+              placeholder="Enter Your Email"
+              className="w-full p-3 bg-gray-200 text-black outline-none"
+            />
+            <button className="bg-red-500 px-4 flex items-center justify-center">
+              <IoMdSend className="text-white text-xl" />
+            </button>
+          </div>
+        </div>
 
-    {/* Google Play */}
-    <button className="flex items-center bg-white text-black px-6 py-1 rounded-lg hover:bg-gray-200 transition">
-      <FaGooglePlay size={22} />
-      <span className="text-sm font-medium">Google Play</span>
-    </button>
-
-    {/* App Store */}
-    <button className="flex items-center bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-200 transition">
-      <FaApple size={22} />
-      <span className="text-sm font-medium">App Store</span>
-    </button>
-
-  </div>
-</div>
       </div>
 
-      {/* Bottom Bar */}
-    <div className="relative border-t border-white/20 text-center py-4 text-sm text-gray-400">
-  © {new Date().getFullYear()} DeeBite. All Rights Reserved.
-</div>
+      {/* Bottom copyright */}
+      <div className="border-t border-gray-700 mt-12 pt-6 text-center text-sm">
+        © {new Date().getFullYear()} Deebite. All Rights Reserved.
+      </div>
+
     </footer>
   );
 }

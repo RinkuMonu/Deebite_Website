@@ -1,6 +1,7 @@
 import { LiaCertificateSolid } from "react-icons/lia";
 import { IoTimerSharp } from "react-icons/io5";
-
+import { LuBadgeCheck } from "react-icons/lu";
+import { PiCertificateDuotone } from "react-icons/pi";
 
 
 
@@ -8,7 +9,7 @@ export default function FeaturesSection() {
   const features = [
     {
       title: "100% Swiss Quality",
-      icon: <LiaCertificateSolid />,
+      icon: <LuBadgeCheck />,
     },
     {
       title: "30-min Delivery Guarantee",
@@ -20,7 +21,7 @@ export default function FeaturesSection() {
     },
     {
       title: "Food Law Certified",
-      icon: <LiaCertificateSolid />,
+      icon: <PiCertificateDuotone />,
     },
   ];
   
@@ -68,7 +69,7 @@ export default function FeaturesSection() {
             {/* LINK */}
             <div className="mt-6 text-[#F5185a] font-medium flex items-center justify-center gap-2">
               <span>♦</span>
-              Discover More
+           -------
               <span>♦</span>
             </div>
           </div>

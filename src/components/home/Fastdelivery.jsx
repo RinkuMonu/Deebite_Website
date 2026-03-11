@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function FastdeliverySection() {
     return (
         <section className="relative w-full pb-12">
@@ -30,9 +32,9 @@ export default function FastdeliverySection() {
                             15 minutes. Earn on every delivery, enjoy flexible working hours,
                             and be part of a fast-growing street food delivery network in your city.
                         </p>
-                        <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-md">
+                        <Link to="/deliverypartner" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-md">
                             Become a Delivery Partner
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
