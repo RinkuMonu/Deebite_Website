@@ -1,21 +1,22 @@
 import { useState } from "react";
+import Steps from "../components/deliverypartner/Steps";
 
 const DeliveryPartnerSection = () => {
   const [mobile, setMobile] = useState("");
   const [error, setError] = useState("");
+  const [showOtp, setShowOtp] = useState(false);
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
 
   const handleMobileChange = (e) => {
     const value = e.target.value;
 
-    if (/^\d*$/.test(value)) {
-      if (value.length <= 10) {
-        setMobile(value);
-        setError("");
-      }
+    if (/^\d*$/.test(value) && value.length <= 10) {
+      setMobile(value);
+      setError("");
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleGetOtp = (e) => {
     e.preventDefault();
 
     if (mobile.length !== 10) {
@@ -24,10 +25,36 @@ const DeliveryPartnerSection = () => {
     }
 
     setError("");
+    setShowOtp(true);
     alert("OTP Sent!");
   };
 
+  const handleOtpChange = (element, index) => {
+    if (!/^\d*$/.test(element.value)) return;
+
+    const newOtp = [...otp];
+    newOtp[index] = element.value;
+    setOtp(newOtp);
+
+    if (element.nextSibling && element.value) {
+      element.nextSibling.focus();
+    }
+  };
+
+  const handleVerifyOtp = (e) => {
+    e.preventDefault();
+
+    if (otp.join("").length !== 6) {
+      setError("Please enter 6 digit OTP");
+      return;
+    }
+
+    setError("");
+    alert("OTP Verified!");
+  };
+
   return (
+ <>
     <section
       className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-center bg-cover bg-center py-16"
       style={{
@@ -35,28 +62,26 @@ const DeliveryPartnerSection = () => {
           "url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092')",
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
-        {/* Left Text */}
+        {/* Left */}
         <div className="text-white space-y-6 text-center lg:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <h1 className="text-4xl lg:text-6xl font-bold">
             Join us as our{" "}
-            <span className="text-yellow-500 font-bold">
-              Delivery Partner!
-            </span>
+            <span className="text-yellow-500">Delivery Partner!</span>
           </h1>
         </div>
 
-        {/* Right Form */}
+        {/* Form */}
         <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 max-w-md w-full mx-auto lg:ml-auto">
-          <h2 className="text-center text-lg sm:text-xl font-semibold mb-6">
+          <h2 className="text-center text-xl font-semibold mb-6">
             Register as Delivery Partner
           </h2>
 
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4">
+
             <input
               type="text"
               placeholder="Enter your name"
@@ -68,22 +93,49 @@ const DeliveryPartnerSection = () => {
               value={mobile}
               onChange={handleMobileChange}
               placeholder="Enter Your Mobile Number"
-              className="w-full border-2 hover:border-yellow-500 rounded-lg px-4 py-3 focus:outline-none"
+              className="w-full border-2 rounded-lg px-4 py-3 focus:outline-none hover:border-yellow-500"
             />
+
+            {/* OTP Fields */}
+            {showOtp && (
+              <div className="flex justify-between gap-2 mt-3">
+                {otp.map((data, index) => (
+                  <input
+                    key={index}
+                    type="text"
+                    maxLength="1"
+                    value={data}
+                    onChange={(e) => handleOtpChange(e.target, index)}
+                    className="w-10 h-12 border-2 rounded-lg text-center text-lg focus:border-yellow-500 outline-none"
+                  />
+                ))}
+              </div>
+            )}
 
             {error && <p className="text-red-500 text-sm">{error}</p>}
 
-            <button
-              type="submit"
-              className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-3 rounded-lg font-semibold transition"
-            >
-              Get OTP
-            </button>
+            {/* Buttons */}
+            {!showOtp ? (
+              <button
+                onClick={handleGetOtp}
+                className="w-full bg-yellow-400 hover:bg-yellow-600 text-white py-3 rounded-lg font-semibold transition"
+              >
+                Get OTP
+              </button>
+            ) : (
+              <button
+                onClick={handleVerifyOtp}
+                className="w-full bg-yellow-400 text-white py-3 rounded-lg font-semibold transition"
+              >
+                Verify OTP
+              </button>
+            )}
           </form>
         </div>
-
       </div>
     </section>
+    <Steps />
+ </>
   );
 };
 

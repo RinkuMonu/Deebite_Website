@@ -9,39 +9,33 @@ import "swiper/css/pagination"
 const testimonials = [
   {
     name: "Rahul Sharma",
-    role: "Food Lover",
     text: "DeeBite delivers my favorite street food in just minutes. The taste and speed are amazing!",
-    img: "/home/man.jpg"
+    img: "/home/avatar-b.jpg"
   },
   {
-    name: "Priya Mehta",
-    role: "Regular Customer",
+    name: "Riya Mishra",
     text: "I love the quick 15 minute delivery. It feels like the food stall is right outside my home.",
-    img: "/home/woman.jpg"
+    img: "/home/avatar-g.jpg"
   },
   {
     name: "Amit Verma",
-    role: "Student",
     text: "Perfect for late night cravings. Fast delivery and delicious snacks every time!",
-    img: "/home/man.jpg"
+    img: "/home/avatar-b.jpg"
   },
   {
     name: "Neha Kapoor",
-    role: "Office Professional",
     text: "DeeBite has completely changed how I order street food. Super fast and reliable.",
-    img: "/home/woman.jpg"
+    img: "/home/avatar-g.jpg"
   },
   {
     name: "Priya Mehta",
-    role: "Regular Customer",
     text: "I love the quick 15 minute delivery. It feels like the food stall is right outside my home.",
-    img: "/home/woman.jpg"
+    img: "/home/avatar-g.jpg"
   },
    {
     name: "Amit Verma",
-    role: "Student",
     text: "Perfect for late night cravings. Fast delivery and delicious snacks every time!",
-    img: "/home/man.jpg"
+    img: "/home/avatar-b.jpg"
   },
 ]
 
