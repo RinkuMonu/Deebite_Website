@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MdOutlineRateReview } from "react-icons/md";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { HiMenu, HiX } from "react-icons/hi";
+import { FaStar } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 const Header = () => {
@@ -14,6 +15,10 @@ const Header = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [role, setRole] = useState("");
+
+
+  const [ratingOpen, setRatingOpen] = useState(false);
+const [rating, setRating] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,13 +59,14 @@ const Header = () => {
       return;
     }
 
-    setError("");
-    alert("Thank you for your feedback!");
+   setError("");
 
-    setName("");
-    setMobile("");
-    setMessage("");
-    setLoginOpen(false);
+setName("");
+setMobile("");
+setMessage("");
+setLoginOpen(false);
+
+setRatingOpen(true); // open star rating popup
   };
 
   return (
@@ -76,7 +82,7 @@ const Header = () => {
           
           {/* Logo */}
           <div className="text-2xl font-bold">
-            <Link to="/">Deebite</Link>
+           <img src="/home/deebite-logo.png" alt="Deebite Logo" className="h-12" />
           </div>
 
           {/* Desktop Navigation */}
@@ -185,7 +191,6 @@ const Header = () => {
               <h2 className="text-3xl font-bold mb-2">
                 Customer Feedback
               </h2>
-
               <p className="text-xl font-semibold mb-8">
                 Share your experience with us
               </p>
@@ -207,7 +212,7 @@ const Header = () => {
   </div>
 
   {/* Role / Occupation */}
-  <div>
+  {/* <div>
     <label className="block mb-2 font-medium">
       What do you do? (Role / Occupation)
     </label>
@@ -218,7 +223,7 @@ const Header = () => {
       placeholder="Student / Food Blogger / Business / etc."
       className="w-full border p-3 rounded-lg bg-white"
     />
-  </div>
+  </div> */}
 
   {/* Mobile */}
   <div>
@@ -264,6 +269,54 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+
+      {ratingOpen && (
+  <>
+    <div
+      className="fixed inset-0 bg-black/40 z-50"
+      onClick={() => setRatingOpen(false)}
+    ></div>
+
+    <div className="fixed inset-0 flex items-center justify-center z-50 px-4">
+      <div className="bg-white rounded-xl shadow-xl p-8 w-full max-w-md text-center">
+
+        <h2 className="text-2xl font-bold mb-4">
+          Rate Your Experience
+        </h2>
+
+        <p className="text-gray-600 mb-6">
+          How was your experience with Deebite?
+        </p>
+
+        {/* Stars */}
+        <div className="flex justify-center gap-2 mb-6">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <FaStar
+              key={star}
+              size={34}
+              onClick={() => setRating(star)}
+              className={`cursor-pointer transition ${
+                rating >= star ? "text-yellow-400" : "text-gray-300"
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => {
+            alert(`Thank you for rating us ${rating} stars!`);
+            setRatingOpen(false);
+            setRating(0);
+          }}
+          className="bg-yellow-400 text-white px-6 py-2 rounded-lg hover:bg-[#f5185a]/80"
+        >
+          Submit Rating
+        </button>
+      </div>
+    </div>
+  </>
+)}
     </>
   );
 };

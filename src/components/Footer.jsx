@@ -15,29 +15,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Logo & Contact */}
         <div>
-          <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-2">
-            Deebite
-          </h2>
+       <img src="/home/deebite-logo.png" alt="Deebite Logo" className="h-14 mb-5" />
 
           <p className="text-sm mb-6">
             Lorem ipsum dolor sit consectetur, ame adipiscing elit, sed do
           </p>
 
-          <div className="space-y-3 text-sm">
-            <div className="flex gap-3">
-              <FaEnvelope className="mt-1 text-red-500" />
-              <p>
-                info@deebite.com <br /> test@deebite.com
-              </p>
-            </div>
-
-            <div className="flex gap-3">
-              <FaPhoneAlt className="mt-1 text-red-500" />
-              <p>
-                +123 456 679 123 <br /> +123 456 789 333
-              </p>
-            </div>
-          </div>
+        
         </div>
 
         {/* Quick Links */}
@@ -108,24 +92,25 @@ export default function Footer() {
         {/* Subscribe */}
         <div>
           <h3 className="text-white text-xl font-semibold mb-6 border-b border-gray-600 inline-block pb-2">
-            Subscribe
+           Contact
           </h3>
-          <p className="text-sm mb-6">
-            Lorem ipsum dolor si consectetur adipiscing elit, sed eiusmod tempor
-            incididunt ut labore et
-          </p>
+           <div className="space-y-3 text-sm">
+            <div className="flex gap-3">
+              <FaEnvelope className="mt-1 text-red-500" />
+              <p>
+                info@deebite.com <br /> test@deebite.com
+              </p>
+            </div>
 
-          {/* Email input */}
-          <div className="flex mb-6">
-            <input
-              type="email"
-              placeholder="Enter Your Email"
-              className="w-full p-3 bg-gray-200 text-black outline-none"
-            />
-            <button className="bg-red-500 px-4 flex items-center justify-center">
-              <IoMdSend className="text-white text-xl" />
-            </button>
+            <div className="flex gap-3">
+              <FaPhoneAlt className="mt-1 text-red-500" />
+              <p>
+                +123 456 679 123 <br /> +123 456 789 333
+              </p>
+            </div>
           </div>
+
+        
         </div>
       </div>
 

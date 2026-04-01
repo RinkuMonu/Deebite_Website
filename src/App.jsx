@@ -15,8 +15,6 @@ import TermsOfService from "./pages/Termsofservice";
 
 
 function App() {
-
-  
   return (
     <Router>
       <ScrollToTop />
