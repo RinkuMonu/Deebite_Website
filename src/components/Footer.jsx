@@ -15,9 +15,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Logo & Contact */}
         <div>
-          <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-2">
-            Deebite
-          </h2>
+       <img src="/home/deebite-logo.png" alt="Deebite Logo" className="h-14 mb-5" />
 
           <p className="text-sm mb-6">
             Lorem ipsum dolor sit consectetur, ame adipiscing elit, sed do

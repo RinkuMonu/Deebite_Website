@@ -7,6 +7,7 @@ import Banner from "../components/home/FoodBanner";
 import FoodLine from "../components/home/FoodLine";
 // import FoodHero from "../components/home/FoodLine";
 import HeroSection from "../components/home/HeroBanner";
+import HygieneSection from "../components/home/Hygiene";
 import TestimonialSection from "../components/home/Testimonial";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
      <FoodCategorySection />
      <Banner /> 
      <AppCtaSection />
+     <HygieneSection />
      <TestimonialSection />
     </>
   );

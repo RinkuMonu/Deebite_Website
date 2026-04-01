@@ -82,7 +82,7 @@ setRatingOpen(true); // open star rating popup
           
           {/* Logo */}
           <div className="text-2xl font-bold">
-            <Link to="/">Deebite</Link>
+           <img src="/home/deebite-logo.png" alt="Deebite Logo" className="h-12" />
           </div>
 
           {/* Desktop Navigation */}
